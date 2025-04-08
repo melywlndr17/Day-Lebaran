@@ -47,6 +47,33 @@
         .sidebar ul li {
             margin-bottom: 15px;
         }
+        
+        .sidebar ul li.has-submenu > a {
+            position: relative;
+        }
+        
+        .sidebar ul li.has-submenu > a:after {
+            content: '▼';
+            font-size: 10px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .sidebar ul li.has-submenu .submenu {
+            display: none;
+            padding-left: 15px;
+            margin-top: 10px;
+        }
+        
+        .sidebar ul li.has-submenu.active .submenu {
+            display: block;
+        }
+        
+        .sidebar ul li.has-submenu.active > a:after {
+            content: '▲';
+        }
 
         .sidebar ul li a {
             color: white;
@@ -133,6 +160,7 @@
             box-shadow: 0 3px 4px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             background-color: white;
+            position: relative;
         }
 
         .gallery-item:hover {
@@ -153,13 +181,11 @@
             height: 300px;
             object-fit: cover;
             display: block;
+            cursor: pointer;
         }
 
         .caption {
-            padding: 10px;
-            background-color: white;
-            text-align: center;
-            font-style: italic;
+            display: none; /* Caption tidak ditampilkan di thumbnail */
         }
 
         footer {
@@ -209,6 +235,18 @@
             display: block;
             max-width: 90%;
             max-height: 90%;
+        }
+        
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+            font-size: 18px;
         }
 
         .close {
@@ -264,298 +302,311 @@
 </head>
 <body>
     <div class="wrapper">
+        <aside class="sidebar">
+            <ul>
+            <li><a href="#" onclick="showContent('lebaran-diary')">Cerita Lebaran</a></li>
+            <li><a href="#" onclick="showContent('about')">Tentang</a></li>
+            </ul>
+            </aside>
         <div class="sidebar">
             <h2>Day Lebaran</h2>
             <ul>
-                <li><a href="#about">Me</a></li>
-                <li><a href="#hari-pertama">Lebaran Hari Pertama</a></li>
-                <li><a href="#hari-kedua">Lebaran Hari Kedua</a></li>
-                <li><a href="#hari-ketiga">Lebaran Hari Ketiga</a></li>
-                <li><a href="#hari-keempat">Lebaran Hari Keempat</a></li>
-                <li><a href="#hari-kelima">Lebaran Hari Kelima</a></li>
-                <li><a href="#hari-keenam">Lebaran Hari Keenam</a></li>
+                <li class="has-submenu">
+                    <a href="#lebaran-diary"></a>
+                    <ul>
+                        <li><a href="#hari-pertama">Hari Pertama🌷</a></li>
+                        <li><a href="#hari-kedua">Hari Kedua🌷</a></li>
+                        <li><a href="#hari-ketiga">Hari Ketiga🌷</a></li>
+                        <li><a href="#hari-keempat">Hari Keempat🌷</a></li>
+                        <li><a href="#hari-kelima">Hari Kelima🌷</a></li>
+                        <li><a href="#hari-keenam">Hari Keenam🌷</a></li>
+                    </ul>
+                </li>
             </ul>
-        </div>
-
+        </div>   
         <div class="container">
-            <h1 class="welcome-text">🌷🌷 Selamat Datang di Halaman Lebaran Saya 🌷🌷</h1>
-            <div id="about" class="content">
-                <h2>✍️</h2>
-                <div class="profile">
-                    <img src="foto mely4.jpg" alt="Foto Profil">
-                    <div class="profile-info">
-                        <p>Assalamu'alaikum, selamat datang di halaman lebaran saya Mely Wulandari, senang berbagi momen spesial lebaran saya bersama keluarga dan kerabat tercinta. Halaman ini berisi kumpulan momen indah selama perayaan Idul Fitri 1446 H yang ingin saya bagikan. Semoga lebaran kita diberkahi Allah SWT dengan kebahagiaan dan kesehatan bersama orang tercinta.</p>
-                    </div>
-                </div>
+            <h1 class="welcome-text">🌷🌷Selamat Datang di Halaman Lebaran Saya🌷🌷</h1>
+            
+            <div id="lebaran-diary" class="content">
+                <h2>👉✍️</h2>
+                <p>Selamat datang di perjalanan lebaran 1446 H saya. Saya Mely Wulandari ingin berbagi momen indah selama perayaan I'dul Fitri 1446 H bersama keluarga tercinta. Dan Saya do'a kan semoga lebaran kita diberkahi oleh Allah dengan Kebahagiaan menikmati momen indah bersama keluarga tercinta kita. Silahkan dilihat 🫶🌷</p>
             </div>
 
             <div id="hari-pertama" class="content">
-                <h2>Lebaran Hari Pertama</h2>
+                <h2>Day Pertama🌷</h2>
                 <p>Takbir bergema, Shalat Ied di pagi hari menjadi pembuka perayaan Idul Fitri 1446 H. Berkumpul dengan keluarga besar, saling memaafkan, dan berbagi kebahagiaan menjadi momen yang tak terlupakan.</p>
                 
                 <div class="gallery">
                     <div class="gallery-item">
-                        <img src="keluarga.jpg" alt="dokumentasi keluargaku, sebelum ke mesjid" class="gallery-img">
+                        <img src="keluarga.jpg" alt="Dokumentasi keluargaku" class="gallery-img">
                         <div class="caption">Dokumentasi keluargaku, sebelum ke mesjid</div>
                     </div>
                     <div class="gallery-item">
                         <img src="foto mesjid1.jpg" alt="Suasana di mesjid" class="gallery-img">
-                        <div class="caption">Suasana di mesjid</div>
+                        <div class="caption">Suasana di mesjid yang ramai dengan jamaah</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="di mesjid(dila, julia, azmil).jpg" alt="Foto bersama di mesjid" class="gallery-img">
+                        <div class="caption">Foto bersama Dila, Julia, dan Azmil di mesjid</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="mamalagimesjid.jpg" alt="Mama di mesjid"  class="gallery-img">
+                        <div class="caption">Mama sedang di mesjid untuk shalat Ied</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb1.2.jpg" alt="Momen lebaran" class="gallery-img">
+                        <div class="caption">Momen bersama keluarga di hari pertama lebaran</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb1.4.jpg" alt="Suasana lebaran" class="gallery-img">
+                        <div class="caption">Suasana hangat di hari pertama lebaran</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb1.5.jpg" alt="Foto keluarga" class="gallery-img">
+                        <div class="caption">Berkumpul dengan keluarga besar</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb1.6.jpg" alt="Momen lebaran" class="gallery-img">
+                        <div class="caption">Berkumpul dengan sanak saudara</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb1.8.jpg" alt="Kebersamaan keluarga" class="gallery-img">
+                        <div class="caption">Kebersamaan yang penuh kebahagiaan</div>
+                    </div>
+                    <div class="gallery-item">
+                        <video controls class="gallery-video">
+                            <source src="leb1.vidio.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="caption">Tradisi kaum laki-laki mando'a ke rumah masyarakat yang berada disekitar</div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="di mesjid(dila, julia, azmil).jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="mamalagimesjid.jpg" alt=""  class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb1.2.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb1.4.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb1.5.jpg"></div class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="leb1.6.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb1.8.jpg" alt=""class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <video controls>
-                        <source src="leb1.vidio.mp4" type="video/mp4" class="gallery-img">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                    <div class="caption">Tradisi kaum laki-laki mando'a ke rumah masyarakat yang berada disekitar.</div>
-                </div>
             </div>
-        </div>
 
-        <div id="hari-kedua" class="content">
-            <h2>Lebaran Hari Kedua</h2>
-            <p>Lebaran hari kedua, kami pergi berkunjung kerumah mertuanya kakak pertama ku, yang tidak terlalu jauh dari rumah, beda kecamatan.Kami berangkat pukul 14.00 WIB, perjalanan kami di hadapi dengan mobil kami yang tiba-tiba mati, dan juga jalan yang lumayan macet, sehingga matinya mobil kami menamnbah kemacetan. Dan Alhamdulillah ada orang baik yang menawarkan dirinya untuk mendorong mobil kami kepingkir jalan, agar tidak mengganggu kemacetan. Tak lama kemudian datang lah seorang montil yang barusan dihubungi oleh abang ipar, setelah diperbaiki mobil kami pun hidup, lanjut kami jalan, dan kami sampe di rumah mertua kakak diwaktu magrib. .</p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="lebaran ke2.jpg" alt="" class="gallery-img">
-                    <div class="caption">Dokumentasi dulu 😄</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb2.2.jpg" alt="" class="gallery-img">
-                    <div class="caption">Ceritanya kami baru sampai di rumah mertuanya kakak, aku ngajak fotbar terlebih dahulu sebelum masuk ke dalam rumah, karena langit juga sudah mulai gelap😄👉</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb2.3.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb2.4.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb2.9.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb2.10.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <video controls>
-                        <source src="leb2.vidio.mp4" type="video/mp4" class="gallery-img">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                    <div class="caption">Suasana Ramah Tamah</div>
+            <div id="hari-kedua" class="content">
+                <h2>Day Kedua🌷</h2>
+                <p>Lebaran hari kedua, kami pergi berkunjung kerumah mertuanya kakak pertama ku, yang tidak terlalu jauh dari rumah, beda kecamatan. Kami berangkat pukul 14.00 WIB, perjalanan kami di hadapi dengan mobil kami yang tiba-tiba mati, dan juga jalan yang lumayan macet, sehingga matinya mobil kami menamnbah kemacetan. Dan Alhamdulillah ada orang baik yang menawarkan dirinya untuk mendorong mobil kami kepingkir jalan, agar tidak mengganggu kemacetan. Tak lama kemudian datang lah seorang montil yang barusan dihubungi oleh abang ipar, setelah diperbaiki mobil kami pun hidup, lanjut kami jalan, dan kami sampe di rumah mertua kakak diwaktu magrib.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="lebaran ke2.jpg" alt="Dokumentasi" class="gallery-img">
+                        <div class="caption">Dokumentasi dulu 😄</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb2.2.jpg" alt="Foto bersama" class="gallery-img">
+                        <div class="caption">Ceritanya kami baru sampai di rumah mertuanya kakak, aku ngajak fotbar terlebih dahulu sebelum masuk ke dalam rumah, karena langit juga sudah mulai gelap😄👉</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb2.3.jpg" alt="Foto keluarga" class="gallery-img">
+                        <div class="caption">Momen bersama keluarga besar di rumah mertua kakak</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb2.4.jpg" alt="Suasana berlebaran" class="gallery-img">
+                        <div class="caption">Suasana hangat berlebaran bersama keluarga</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb2.9.jpg" alt="Momen lebaran" class="gallery-img">
+                        <div class="caption">Kebersamaan di hari kedua lebaran</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb2.10.jpg" alt="Foto bersama" class="gallery-img">
+                        <div class="caption">Foto bersama sebagai kenang-kenangan</div>
+                    </div>
+                    <div class="gallery-item">
+                        <video controls class="gallery-video">
+                            <source src="leb2.vidio.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="caption">Suasana Ramah Tamah di rumah mertua kakak</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="hari-ketiga" class="content">
-            <h2>Lebaran Hari Ketiga</h2>
-            <p>Di hari ketiga, kami pergi menjalang. Yang merupakan adat istiadat dan tradisi di Minangkabau yang setiap lebarannya pergi manjalang kerumah kerabat family dan induak bako. Untuk hari pertama menjalang kami pergi ke 9 rumah yang ada di jorong kami dengan membawa rantang yang berisikan beras, dan kue-kue. Saya pergi bersama kakak perempuan yang nomor dua.</p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="leb3..jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
+            <div id="hari-ketiga" class="content">
+                <h2>Day Ketiga🌷</h2>
+                <p>Di hari ketiga, kami pergi menjalang. Yang merupakan adat istiadat dan tradisi di Minangkabau yang setiap lebarannya pergi manjalang kerumah kerabat family dan induak bako. Untuk hari pertama menjalang kami pergi ke 9 rumah yang ada di jorong kami dengan membawa rantang yang berisikan beras, dan kue-kue. Saya pergi bersama kakak perempuan yang nomor dua.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="leb3..jpg" alt="Manjalang" class="gallery-img">
+                        <div class="caption">Persiapan untuk manjalang ke rumah kerabat</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb3. manjalang.jpg" alt="Tradisi manjalang" class="gallery-img">
+                        <div class="caption">Tradisi manjalang dengan membawa rantang berisi makanan</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb3.4.jpg" alt="Kunjungan kerabat" class="gallery-img">
+                        <div class="caption">Kunjungan ke rumah kerabat dan saudara</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb3.5.jpg" alt="Momen manjalang" class="gallery-img">
+                        <div class="caption">Momen selama tradisi manjalang</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb3.6.jpg" alt="Foto bersama" class="gallery-img">
+                        <div class="caption">Foto bersama saat berkunjung ke rumah kerabat</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb3.7.jpg" alt="Suasana kunjungan" class="gallery-img">
+                        <div class="caption">Suasana kunjungan di salah satu rumah</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb3.8.jpg" alt="Kebersamaan keluarga" class="gallery-img">
+                        <div class="caption">Kebersamaan keluarga yang hangat</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb3.9.jpg" alt="Foto keluarga" class="gallery-img">
+                        <div class="caption">Foto bersama sebagai kenangan</div>
+                    </div>
+                    <div class="gallery-item">
+                        <video controls class="gallery-video">
+                            <source src="leb3.vidio.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="caption">Kocak khaira, belajar jadi konten kreator😄</div>
+                    </div>
+                    <div class="gallery-item">
+                        <video controls class="gallery-video">
+                            <source src="leb3.vidio2.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="caption">Momen seru selama manjalang</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="leb3. manjalang.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb3.4.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb3.5.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb3.6.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb3.7.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb3.8.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb3.9.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <video controls>
-                        <source src="leb3.vidio.mp4" type="video/mp4" class="gallery-img">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                    <div class="caption">kocak khaira, belajar jadi konten kreator😄</div>
-                </div>
-                <div class="gallery-item">
-                    <video controls>
-                        <source src="leb3.vidio2.mp4" type="video/mp4" class="gallery-img">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                    <div class="caption"></div>
-                </div>
-               
-             
             </div>
-        </div>
 
-        <div id="hari-keempat" class="content">
-            <h2>Lebaran Hari Keempat</h2>
-            <p>Lebaran hari ke empat masih dengan suasana pergi manjalang, dan kami pergi menjalang ke kampung orang tua papa, kegiatan manjalang kali ini lumayan seru, karena kampung papa ni dekat danau atas gais, 
-            Maa Syaa Allah bangettt pemandangannya. 🫶🤗 </p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="profil.jpg" alt="" class="gallery-img">
-                    <div class="caption">Dokumenasi adalah hal yang wajib😄</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb4.7.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb4.1.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb4.3.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb4.6.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb4.8.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb4.9.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb4. kunjungan.jpg" alt="" class="gallery-img">
-                    <div class="caption">Datang yang berbarengan dimalam itu, kami yang baru pulang dari menjalang dan kakak perempuan beserta keluarga suami nya juga baru sampai di rumah untuk pergi beraya, suasana khidmat antara dua keluarga, obrolan datang dengan sendirinya mulai dari pembahasan kebun, kemacetan, lebaran, dan lainnya. </div>
-                </div>
-                <div class="gallery-item">
-                    <video controls>
-                        <source src="leb4.vidio.mp4" type="video/mp4" class="gallery-img">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                    <div class="caption">Vidio perjalanan menuju tempat bako, perjalanan double dengan menikmati keindahan alam.</div>
+            <div id="hari-keempat" class="content">
+                <h2>Day Keempat🌷</h2>
+                <p>Lebaran hari ke empat masih dengan suasana pergi manjalang, dan kami pergi menjalang ke kampung orang tua papa, kegiatan manjalang kali ini lumayan seru, karena kampung papa ni dekat danau atas gais, 
+                Maa Syaa Allah bangettt pemandangannya. 🫶🤗 </p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="profil.jpg" alt="Dokumentasi" class="gallery-img">
+                        <div class="caption">Dokumenasi adalah hal yang wajib😄</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb4.7.jpg" alt="Pemandangan" class="gallery-img">
+                        <div class="caption">Pemandangan indah di kampung orang tua papa</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb4.1.jpg" alt="Kunjungan" class="gallery-img">
+                        <div class="caption">Kunjungan ke keluarga di kampung papa</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb4.3.jpg" alt="Foto bersama" class="gallery-img">
+                        <div class="caption">Foto bersama keluarga besar</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb4.6.jpg" alt="Momen manjalang" class="gallery-img">
+                        <div class="caption">Keseruan manjalang di hari keempat</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb4.8.jpg" alt="Foto keluarga" class="gallery-img">
+                        <div class="caption">Berfoto dengan latar pemandangan indah</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb4.9.jpg" alt="Danau Atas" class="gallery-img">
+                        <div class="caption">Pemandangan Danau Atas yang mempesona</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb4. kunjungan.jpg" alt="Kunjungan malam" class="gallery-img">
+                        <div class="caption">Datang yang berbarengan dimalam itu, kami yang baru pulang dari menjalang dan kakak perempuan beserta keluarga suami nya juga baru sampai di rumah untuk pergi beraya, suasana khidmat antara dua keluarga, obrolan datang dengan sendirinya mulai dari pembahasan kebun, kemacetan, lebaran, dan lainnya.</div>
+                    </div>
+                    <div class="gallery-item">
+                        <video controls class="gallery-video">
+                            <source src="leb4.vidio.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="caption">Video perjalanan menuju tempat bako, perjalanan double dengan menikmati keindahan alam.</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="hari-kelima" class="content">
-            <h2>Lebaran Hari Kelima</h2>
-            <p>Dihari kelima kami pergi kerumah sepupu pergi beraya, disini kami disuguhi dengan Soto Ayam penggugah selera, banyak tawa dari pertemuan kami saat itu, menyaksikan kerandoman kami kalau sudah berkumpul, tingkah hanin sepupu kecil kami dan membuat tawa kami semakin menjadi-jadi. ✍️😄 </p>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="leb5.1.jpg"  alt="" class="gallery-img">
-                    <div class="caption"></div>
+            <div id="hari-kelima" class="content">
+                <h2>Day Kelima🌷</h2>
+                <p>Dihari kelima kami pergi kerumah sepupu pergi beraya, disini kami disuguhi dengan Soto Ayam penggugah selera, banyak tawa dari pertemuan kami saat itu, menyaksikan kerandoman kami kalau sudah berkumpul, tingkah hanin sepupu kecil kami dan membuat tawa kami semakin menjadi-jadi. ✍️😄 </p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="leb5.1.jpg" alt="Kunjungan ke sepupu" class="gallery-img">
+                        <div class="caption">Kunjungan ke rumah sepupu di hari kelima</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb5.2.jpg" alt="Makan bersama" class="gallery-img">
+                        <div class="caption">Makan soto ayam bersama keluarga</div>
+                    </div>
+                    <div class="gallery-item">
+                        <video controls class="gallery-video">
+                            <source src="leb5. hanin.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="caption">Tingkah lucu Hanin, sepupu kecil kami</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="leb5.2.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-            <div class="gallery-item">
-                <video controls>
-                    <source src="leb5. hanin.mp4" type="video/mp4"  class="gallery-img">
-                    Browser Anda tidak mendukung tag video.
-                </video>
-                <div class="caption"></div>
             </div>
-        </div>
-        </div>
-        <div id="hari-keenam" class="content">
-            <h2>Lebaran Hari Keenam</h2>
-            <p>Kami bantu ibu Maurek bawang gais, ceritanya kami mulai jam 11.00 WIB sampai jam 21.30 WIB kami pulang nya sudah malam gais, bawang nya itu mau dibawa ibu kepasar pagi minggu gais, jadi kalo kami ga bantu ibu sape selesai ibu bakal kerjainnya sampe larut malam, yaudah gapapa kami bantuin ibu aja sampe kelar 🤗🫶.</p>
             
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="leb6.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
+            <div id="hari-keenam" class="content">
+                <h2>Day Keenam🌷</h2>
+                <p>Kami bantu ibu Maurek bawang gais, ceritanya kami mulai jam 11.00 WIB sampai jam 21.30 WIB kami pulang nya sudah malam gais, bawang nya itu mau dibawa ibu kepasar pagi minggu gais, jadi kalo kami ga bantu ibu sape selesai ibu bakal kerjainnya sampe larut malam, yaudah gapapa kami bantuin ibu aja sampe kelar 🤗🫶.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="leb6.jpg" alt="Mengupas bawang" class="gallery-img">
+                        <div class="caption">Membantu ibu mengupas bawang</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb6.1.jpg" alt="Proses maurek" class="gallery-img">
+                        <div class="caption">Proses maurek bawang untuk dijual</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb6.2.jpg" alt="Tim maurek" class="gallery-img">
+                        <div class="caption">Tim maurek bawang keluarga</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="leb6.3.jpg" alt="Hasil maurek" class="gallery-img">
+                        <div class="caption">Hasil maurek yang akan dijual di pasar</div>
+                    </div>
+                    <div class="gallery-item">
+                        <video controls class="gallery-video">
+                            <source src="leb6.vidi.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="caption">Video keseruan saat maurek bawang bersama</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="leb6.1.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb6.2.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="leb6.3.jpg" alt="" class="gallery-img">
-                    <div class="caption"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <video controls>
-                    <source src="leb6.vidi.mp4" type="video/mp4"  class="gallery-img">
-                    Browser Anda tidak mendukung tag video.
-                </video>
-                <div class="caption"></div>
-            </div>
-        </div>
             </div>
 
             <footer class="footer">
-                <p>Desain by Mely Wulandari >>> email: mellywulandari22@gmail.com >> Instagram: melywlndr17 > contac person: 085271683937 </p>
+                <p><a href=></a> &copy; 2025 Mely Wulandari</p>
             </footer>
         </div>
     </div>
 
-    <!-- Modal untuk memperbesar gambar -->
+    <!-- Modal untuk memperbesar gambar dan menampilkan caption -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="imgModal">
+        <div id="modalCaption" class="modal-caption"></div>
     </div>
 
     <script>
+        // Toggle submenu
+        document.querySelectorAll('.has-submenu > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+        
         // Smooth scroll untuk navigasi
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('.submenu a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 // Hapus class active dari semua link
-                document.querySelectorAll('.sidebar a').forEach(link => {
+                document.querySelectorAll('.sidebar .submenu a').forEach(link => {
                     link.classList.remove('active');
                 });
                 
@@ -575,59 +626,14 @@
 
         // Menampilkan bagian yang aktif saat halaman dimuat
         window.addEventListener('DOMContentLoaded', (event) => {
+            // Set submenu sebagai terbuka secara default
+            document.querySelector('.has-submenu').classList.add('active');
             // Set link about sebagai active secara default
-            document.querySelector('a[href="#about"]').classList.add('active');
+            document.querySelector('a[href="#lebaran-diary"]').classList.add('active');
         });
         
-        // Kode untuk memperbesar gambar saat diklik
+        // Kode untuk memperbesar gambar saat diklik dan menampilkan caption
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("imgModal");
+        const modalCaption = document.getElementById("modalCaption");
         const closeBtn = document.getElementsByClassName("close")[0];
-        
-        // Tambahkan event listener ke semua gambar
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.gallery-img');
-            images.forEach(img => {
-                img.onclick = function() {
-                    modal.style.display = "block";
-                    modalImg.src = this.src;
-                }
-            });
-        });
-        
-        // Tutup modal saat tombol close diklik
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-        
-        // Tutup modal jika user klik di luar gambar
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-        
-        // Mendeteksi section yang sedang dilihat untuk highlight menu
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.content');
-            let currentSection = "";
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 100)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            // Update active class di sidebar
-            document.querySelectorAll('.sidebar a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
